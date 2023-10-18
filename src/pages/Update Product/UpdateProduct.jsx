@@ -1,8 +1,8 @@
 
-const AddProduct = () => {
 
+const UpdateProduct = () => {
 
-    const handelAddroduct = e =>{
+    const handelUpdateProduct = e => {
 
         e.preventDefault();
         const form = event.target;
@@ -14,17 +14,16 @@ const AddProduct = () => {
         const rating = form.rating.value;
         const image = form.image.value;
 
-        const addProduct = { name, brandName, category, price, shortDescription, rating, image   }
+        const addProduct = { name, brandName, category, price, shortDescription, rating, image }
         console.log(addProduct)
 
     }
 
 
 
-
     return (
         <div>
-            <form onSubmit={handelAddroduct}>
+            <form onSubmit={handelUpdateProduct}>
                 {/* card */}
                 <div className="grid lg:grid-cols-2 gap-5 my-5">
                     <div className="form-control  ">
@@ -86,4 +85,4 @@ const AddProduct = () => {
     );
 };
 
-export default AddProduct;
+export default UpdateProduct;

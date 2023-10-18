@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 const Header = () => {
@@ -15,14 +15,22 @@ const Header = () => {
         <div className="bg-[#364058] " >
             <div className="navbar w-10/12 m-auto pt-4 pb-0 ">
                 <div className="flex-1">
-                    <a className=" text-white normal-case font-bold text-2xl lg:text-3xl"><span className="text-[#21b68e]">GSM</span> Manager</a>
+                    <a className=" text-white normal-case font-bold text-2xl lg:text-3xl"><span className="text-[#21b68e]">GSM</span> MANAGER</a>
                 </div>
                 <div className="flex-none gap-2">
                     <div className="form-control">
                         <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
                     </div>
                     <div className="dropdown dropdown-end">
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                        
+                        
+                       
+                    <Link to={'/login'}>
+                            <button className="btn bg-[#21b68e] text-white hover:text-[#21b68e] ">Login</button>
+                            </Link>
+
+
+                        {/* <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
                                 <img src="https://gsmmanager.com/frontend_asset/media/Benco-Mobile.webp" />
                             </div>
@@ -36,7 +44,8 @@ const Header = () => {
                             </li>
                             <li><a>Settings</a></li>
                             <li><a>Logout</a></li>
-                        </ul>
+                        </ul> */}
+
                     </div>
                 </div>
 
