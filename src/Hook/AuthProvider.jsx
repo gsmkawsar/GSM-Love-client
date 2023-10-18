@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import app from "./firebase.config";
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 
 
 
@@ -16,9 +16,9 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const createUser = (email, password, displayName ) => {
+    const createUser = (email, password, displayName) => {
         setLoading(true);
-        return createUserWithEmailAndPassword(auth, email, password, displayName )
+        return createUserWithEmailAndPassword(auth, email, password, displayName)
     }
 
     const signIn = (email, password) => {
@@ -26,18 +26,25 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
+    const userUpdateProfile = (name, photo) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: photo
+        })
+    }
+
     const logOut = () => {
         return signOut(auth)
     }
-    useEffect(()=>{
-        
-    const unSubscribe = onAuthStateChanged(auth, currentUser=>{
-        setUser(currentUser);
-    }) 
-    return ()=>{
-        unSubscribe
-    }
-    },[])
+    useEffect(() => {
+
+        const unSubscribe = onAuthStateChanged(auth, currentUser => {
+            setUser(currentUser);
+            setLoading(false);
+        });
+        return () => {
+            unSubscribe
+        }
+    }, [])
 
 
     const googleSingUp = () => {
@@ -53,7 +60,8 @@ const AuthProvider = ({ children }) => {
         googleSingUp,
         createUser,
         signIn,
-        logOut
+        logOut,
+        userUpdateProfile
     }
 
     return (

@@ -1,19 +1,20 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../Hook/AuthProvider";
 import toast from "react-hot-toast";
 
 
 const RegistrationPage = () => {
 
-    const {googleSingUp, createUser} = useContext(AuthContext);
+    const {googleSingUp, createUser, userUpdateProfile} = useContext(AuthContext);
 
     const handelRegister = e => {
         e.preventDefault();
         const form = e.target;
-        const displayName = form.name.value;
+        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        const img = form.photo.value;
 
         if (password.length < 6) {
             toast.error('Please most be at 6 characters');
@@ -23,18 +24,20 @@ const RegistrationPage = () => {
             return;
         }
 
-        createUser(email, password, displayName)
+        createUser(email, password)
+
         .then(res => {
-            if(res.user){         
-                toast.success('Successfully Registration!')
-                return
-            }
+            userUpdateProfile(name, img)       
+        .then(res => {           
+                toast.success('Successfully Registration!');
+
         })
+    })
+
         .catch(error => {
-            if(error){
-                toast.error(error.message)
-                return
-            }
+          
+                toast.error(error.message);
+                   
             
         })
 
@@ -71,6 +74,15 @@ const RegistrationPage = () => {
                             <span className="label-text ">Name</span>
                         </label>
                         <input type="text" placeholder="Enter Your Name" name="name" className="input input-bordered w-full " />
+                        <label className="label">
+
+                        </label>
+                    </div>
+                    <div className="form-control w-full s">
+                        <label className="label font-bold">
+                            <span className="label-text ">Photo</span>
+                        </label>
+                        <input type="text" placeholder="Photo URL" name="photo" className="input input-bordered w-full " />
                         <label className="label">
 
                         </label>

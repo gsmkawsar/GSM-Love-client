@@ -3,20 +3,20 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Hook/AuthProvider";
 import toast from "react-hot-toast";
 
-import { BiLogOut } from 'react-icons/bi';
+import { MdOutlineAttachEmail } from 'react-icons/md';
 
 
 const Header = () => {
 
-    const { user,  logOut } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
 
     const handelLogOut = () => {
         logOut()
-        .then(() => {
-            toast.success('Successfully Logout')
-          }).catch((error) => {
-            toast.error(error)
-          });
+            .then(() => {
+                toast.success('Successfully Logout')
+            }).catch((error) => {
+                toast.error(error)
+            });
 
     }
 
@@ -32,8 +32,14 @@ const Header = () => {
     return (
         <div className="bg-[#364058] " >
             <div className="navbar w-10/12 m-auto pt-4 pb-0 ">
+
                 <div className="flex-1">
-                    <a className=" text-white normal-case font-bold text-2xl lg:text-3xl"><span className="text-[#21b68e]">GSM</span> MANAGER</a>
+                    <div>
+                    <img className="w-12 mr-2" src="./gsmmanager.png" alt="gsmmanager" />
+                    </div>
+                 <a className=" text-white normal-case font-bold text-2xl lg:text-3xl"><span className="text-[#21b68e]">GSM</span> MANAGER</a>
+               
+                   
                 </div>
                 <div className="flex-none gap-2">
                     <div className="form-control">
@@ -49,19 +55,19 @@ const Header = () => {
                                 <label tabIndex={0} className="text-white hover:text-[#364058] btn-circle avatar text-4xl btn bg-[#33967c]">
                                     <div className="w-10 rounded-full ">
 
-                                        {user.photoURL ?  <img src=  {user.photoURL} /> : <BiLogOut/> }
+                                        <img src={user.photoURL} />
 
-                                       
+
                                     </div>
                                 </label>
-                                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-64">
                                     <li>
                                         <a className="justify-between">
-                                            Profile
-                                            <span className="badge ">New</span>
+                                            {user.email}
+                                            <span className="badge "> <MdOutlineAttachEmail /> </span>
                                         </a>
                                     </li>
-                                    <li><a>Settings</a></li>
+                                    <li><a>{user.displayName}</a></li>
                                     <li onClick={handelLogOut}><a>Logout</a></li>
                                 </ul>
 
