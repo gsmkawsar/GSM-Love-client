@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Hook/AuthProvider";
 import toast from "react-hot-toast";
 
@@ -7,6 +7,8 @@ import toast from "react-hot-toast";
 const LoginPage = () => {
 
     const {googleSingUp, signIn} = useContext(AuthContext)
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handelLogin = e => {
         e.preventDefault();
@@ -25,6 +27,7 @@ const LoginPage = () => {
         .then(res => {
             console.log(res.user)
             if(res.user){
+                navigate(location.state ? location.state : '/' )
                 toast.success('Successfully Login!')
                 
             }

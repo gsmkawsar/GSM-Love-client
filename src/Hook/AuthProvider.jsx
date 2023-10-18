@@ -33,8 +33,17 @@ const AuthProvider = ({ children }) => {
     }
 
     const logOut = () => {
+        setLoading(true);
         return signOut(auth)
     }
+
+
+    
+    const googleSingUp = () => {
+        setLoading(true);
+        return signInWithPopup(auth, googleProvider)
+    }
+
     useEffect(() => {
 
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
@@ -46,10 +55,6 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
-
-    const googleSingUp = () => {
-        return signInWithPopup(auth, googleProvider)
-    }
 
 
 
