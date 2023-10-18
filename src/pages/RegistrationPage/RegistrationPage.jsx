@@ -1,20 +1,64 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Hook/AuthProvider";
+import toast from "react-hot-toast";
 
 
 const RegistrationPage = () => {
 
+    const {googleSingUp, createUser} = useContext(AuthContext);
+
     const handelRegister = e => {
         e.preventDefault();
         const form = e.target;
-        const name = form.name.value;
+        const displayName = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-    
-        console.log(name, email, password)
+
+        if (password.length < 6) {
+            toast.error('Please most be at 6 characters');
+            return
+        } else if (!/(?=.*[A-Z])(?=.*[_.!@$*=-?#])/.test(password)) {
+            toast.error('Your password should have at lest one upper case and special character')
+            return;
+        }
+
+        createUser(email, password, displayName)
+        .then(res => {
+            if(res.user){         
+                toast.success('Successfully Registration!')
+                return
+            }
+        })
+        .catch(error => {
+            if(error){
+                toast.error(error.message)
+                return
+            }
+            
+        })
+
 
     }
 
+    const handelGoogleRegister = () => {
+        googleSingUp()
+        .then(res => {
+            console.log(res.user)
+            if(res.user){
+                toast.success('Successfully Registration!')
+                return
+            }
+        })
+        .catch(error => {
+            if(error){
+                toast.error(error.message)
+                return
+            }
+            
+        })
 
+    }
 
 
     return (
@@ -45,7 +89,7 @@ const RegistrationPage = () => {
                         <label className="label font-bold">
                             <span className="label-text ">Password</span>
                         </label>
-                        <input type="password" placeholder="Enter Password" name="password"  className="input input-bordered w-full " />
+                        <input type="password" placeholder="Enter Password" name="password" className="input input-bordered w-full " />
                         <label className="label">
 
                         </label>
@@ -57,7 +101,7 @@ const RegistrationPage = () => {
 
                 <p>Already have an account please <Link className="text-[#33967c] font-bold" to={'/login'}>Login</Link></p>
 
-                <button className="btn btn-block bg-[#364058] my-5 text-white hover:bg-[#21b68e]">Google Register</button>
+                <button onClick={handelGoogleRegister} className="btn btn-block bg-[#364058] my-5 text-white hover:bg-[#21b68e]">Google Register</button>
 
             </div>
 
