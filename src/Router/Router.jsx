@@ -1,6 +1,6 @@
 import {
-    createBrowserRouter,
-  } from "react-router-dom";
+  createBrowserRouter,
+} from "react-router-dom";
 import Home from "../components/Home/Home";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import MainLayout from "../Layout/MainLayout";
@@ -11,35 +11,36 @@ import RegistrationPage from "../pages/RegistrationPage/RegistrationPage";
 import PrivateRoute from "./PrivateRoute";
 
 
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <MainLayout></MainLayout>,
-      errorElement: <ErrorPage></ErrorPage>,
-      children: [
-        {
-            path: '/',
-            element: <Home></Home>,
-        },
-        {
-            path: '/addProduct',
-            element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>,
-        },
-        {
-            path: "/myCart",
-            element: <MyCart></MyCart>,
-        },
-       {
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>,
+        loader: () => fetch('http://localhost:5000/product')
+      },
+      {
+        path: '/addProduct',
+        element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>,
+      },
+      {
+        path: "/myCart",
+        element: <MyCart></MyCart>,
+      },
+      {
         path: '/login',
-        element:<LoginPage></LoginPage>,
-       },
-       {
+        element: <LoginPage></LoginPage>,
+      },
+      {
         path: '/Registration',
         element: <RegistrationPage></RegistrationPage>,
-       }
+      }
 
-      ]
-    },
-  ]);
+    ]
+  },
+]);
 
-  export default router;
+export default router;

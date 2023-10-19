@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link} from "react-router-dom";
+import { Link, useLocation, useNavigate} from "react-router-dom";
 import { AuthContext } from "../../Hook/AuthProvider";
 import toast from "react-hot-toast";
 
@@ -7,6 +7,8 @@ import toast from "react-hot-toast";
 const RegistrationPage = () => {
 
     const {googleSingUp, createUser, userUpdateProfile} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handelRegister = e => {
         e.preventDefault();
@@ -28,7 +30,8 @@ const RegistrationPage = () => {
 
         .then(res => {
             userUpdateProfile(name, img)       
-        .then(res => {           
+        .then(res => {      
+            navigate(location.state ? location.state : '/login' )
                 toast.success('Successfully Registration!');
 
         })
@@ -49,6 +52,7 @@ const RegistrationPage = () => {
         .then(res => {
             console.log(res.user)
             if(res.user){
+                navigate(location.state ? location.state : '/' )
                 toast.success('Successfully Registration!')
                 return
             }

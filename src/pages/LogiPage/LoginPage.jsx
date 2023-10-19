@@ -45,6 +45,7 @@ const LoginPage = () => {
         googleSingUp()
         .then(res => {
             if(res.user){
+                navigate(location.state ? location.state : '/' )
                 toast.success('Successfully Login!')
                 
             }

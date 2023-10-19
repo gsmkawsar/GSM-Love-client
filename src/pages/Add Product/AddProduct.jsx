@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 
 const AddProduct = () => {
 
@@ -5,7 +6,7 @@ const AddProduct = () => {
     const handelAddroduct = e =>{
 
         e.preventDefault();
-        const form = event.target;
+        const form = e.target;
         const name = form.name.value;
         const brandName = form.brandName.value;
         const category = form.category.value;
@@ -17,8 +18,21 @@ const AddProduct = () => {
         const addProduct = { name, brandName, category, price, shortDescription, rating, image   }
         console.log(addProduct)
 
+        fetch('http://localhost:5000/product',{
+            method:'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(addProduct)
+        })
+        .then(res => res.json())
+        .then(data=> {
+            console.log(data)
+            if(data.insertedId){
+                toast.success('Successfully Add Product!')
+                }
+        })
     }
-
 
 
 
