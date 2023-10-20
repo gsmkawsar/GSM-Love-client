@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
 
 
-const Category = ({ cat }) => {
+const Category = () => {
 
-    const { img, name, category } = cat || {}
-
-    console.log(category)
+ 
 
     return (
 

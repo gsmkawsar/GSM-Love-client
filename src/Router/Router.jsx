@@ -16,6 +16,7 @@ import OnePlus from "../components/Brands/OnePlus/OnePlus";
 import Xiaomi from "../components/Brands/Xiaomi/Xiaomi";
 import Apple from "../components/Brands/Apple/Apple";
 import Product from "../pages/Product/Product";
+import UpdateProduct from "../pages/Update Product/UpdateProduct";
 
 
 const router = createBrowserRouter([
@@ -41,8 +42,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/myCart",
-        element: <MyCart></MyCart>,
+        element: <PrivateRoute><MyCart></MyCart>,</PrivateRoute>,
         loader: () => fetch('http://localhost:5000/myCard'),
+      },
+      {
+        path: '/update/:id',
+        element: <UpdateProduct></UpdateProduct>,
+        loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
+
       },
       {
         path: '/login',

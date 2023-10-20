@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const AppleCard = ({ apple, apples, setApples }) => {
 
-    const { _id, name, brandName, category, price, shortDescription, rating, image } = apple || {}
+    const { _id, name,  price, image } = apple || {}
 
 
     useEffect(() => {
@@ -25,7 +25,16 @@ const AppleCard = ({ apple, apples, setApples }) => {
 
                     <div className="flex text-lg"> <p className="font-bold mr-2">Price:</p> <p> {price}$</p></div>
                     <div className=" flex justify-between items-center mt-2">
-                        <NavLink to={`/product/${_id}`} ><div className="bg-green-700 p-2 btn w-full text-white hover:bg-slate-800">Details</div></NavLink>
+                        <div>
+                            <NavLink to={`/product/${_id}`} ><div className="bg-green-700 p-2 btn w-full text-white hover:bg-slate-800">Details</div></NavLink>
+                        </div>
+
+                        <div>
+                            <NavLink to={`/update/${_id}`} >
+                                <button className="btn bg-[#df6335] text-white hover:bg-slate-600 ">Update</button>
+                            </NavLink>
+                        </div>
+
                     </div>
 
                 </div>
