@@ -9,6 +9,13 @@ import MyCart from "../pages/My Cart/MyCart";
 import LoginPage from "../pages/LogiPage/LoginPage";
 import RegistrationPage from "../pages/RegistrationPage/RegistrationPage";
 import PrivateRoute from "./PrivateRoute";
+import Samsung from "../components/Brands/Samsung/Samsung";
+import Vivo from "../components/Brands/Vivo/Vivo";
+import Oppo from "../components/Brands/Oppo/Oppo";
+import OnePlus from "../components/Brands/OnePlus/OnePlus";
+import Xiaomi from "../components/Brands/Xiaomi/Xiaomi";
+import Apple from "../components/Brands/Apple/Apple";
+import Product from "../pages/Product/Product";
 
 
 const router = createBrowserRouter([
@@ -20,11 +27,17 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/product')
+        
       },
       {
         path: '/addProduct',
         element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>,
+      },
+      {
+        path: '/product/:id',
+        element: <Product></Product>,
+        loader: () => fetch('http://localhost:5000/product')
+
       },
       {
         path: "/myCart",
@@ -37,7 +50,32 @@ const router = createBrowserRouter([
       {
         path: '/Registration',
         element: <RegistrationPage></RegistrationPage>,
-      }
+      },
+      {
+        path: '/Samsung',
+        element: <Samsung></Samsung>,
+      },
+      {
+        path: '/Vivo',
+        element: <Vivo></Vivo>,
+      },
+      {
+        path: '/Oppo',
+        element: <Oppo></Oppo>,
+      },
+      {
+        path: '/OnePlus',
+        element: <OnePlus></OnePlus>,
+      },
+      {
+        path: '/Xiaomi',
+        element: <Xiaomi></Xiaomi>,
+      },
+      {
+        path: '/Apple',
+        element: <Apple></Apple>,
+        loader: () => fetch('http://localhost:5000/product')
+      },
 
     ]
   },

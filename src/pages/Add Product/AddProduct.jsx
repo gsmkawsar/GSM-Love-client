@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 const AddProduct = () => {
 
 
-    const handelAddroduct = e =>{
+    const handelAddroduct = e => {
 
         e.preventDefault();
         const form = e.target;
@@ -15,23 +15,23 @@ const AddProduct = () => {
         const rating = form.rating.value;
         const image = form.image.value;
 
-        const addProduct = { name, brandName, category, price, shortDescription, rating, image   }
+        const addProduct = { name, brandName, category, price, shortDescription, rating, image }
         console.log(addProduct)
 
-        fetch('http://localhost:5000/product',{
-            method:'POST',
+        fetch('http://localhost:5000/product', {
+            method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(addProduct)
         })
-        .then(res => res.json())
-        .then(data=> {
-            console.log(data)
-            if(data.insertedId){
-                toast.success('Successfully Add Product!')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    toast.success('Successfully Add Product!')
                 }
-        })
+            })
     }
 
 
@@ -58,15 +58,27 @@ const AddProduct = () => {
                 <div className="grid lg:grid-cols-2 gap-5 my-5">
                     <div className="form-control  ">
                         <label className="">
-                            <span className="label-text font-bold">Category</span>
+                            <span className="label-text font-bold">Type</span>
                         </label>
-                        <input type="text" placeholder="Category" name="category" className="input input-bordered w-full " />
+
+                        {/* <select className="select select-bordered w-full ">
+                            <option disabled selected>Category</option>
+                            <option>iphone</option>
+                            <option>Xiaomi</option>
+                            <option>Vivo</option>
+                            <option>Samsung</option>
+                            <option>Oppo</option>
+                            <option>OnePlus</option>
+                        </select> */}
+
+                        <input type="text" placeholder="Category" name="category" className=" select select-bordered w-full " />
+
                     </div>
                     <div className="form-control  ">
                         <label className="">
                             <span className="label-text font-bold">Price</span>
                         </label>
-                        <input type="text" placeholder="Price" name="price" className="input input-bordered w-full " />
+                        <input type="text" placeholder="Price" name="price" className="input input-bordered w-full  " />
                     </div>
                 </div>
                 {/* card */}

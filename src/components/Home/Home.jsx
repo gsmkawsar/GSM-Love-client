@@ -1,26 +1,30 @@
 
-import Benar from './Benar';
 import { useLoaderData } from 'react-router-dom';
-import { useState } from 'react';
+import Benar from './Benar';
+import Category from './Category';
+
+
 import WeOffer from './WeOffer';
-import Product from './Product';
+
 
 const Home = () => {
 
+    const categorys = useLoaderData()
 
-    const loadedProduct = useLoaderData();
-    const [products, setProducts] = useState(loadedProduct);
+
+
 
     return (
         <div>
 
             <Benar></Benar>
 
-            <div className="grid lg:grid-cols-4  gap-5 my-5">
-            {
-                products.map(product => <Product key={product._id} product={product}></Product>)
-            }
+            <div className="text-center   ">
+                <h2 className="text-3xl font-extrabold mb-2 mt-5">Shop By Brands</h2>
+                <p className='font-semibold lg:w-2/4 mx-auto '>Select Your Favorite Brands And Purchase</p>
             </div>
+            <Category></Category>
+
             <WeOffer></WeOffer>
         </div>
     );
