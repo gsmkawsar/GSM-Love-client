@@ -5,14 +5,14 @@ const SingleProduct = ({ products }) => {
 
     const { _id, name, brandName, category, price, shortDescription, rating, image } = products || {}
 
-
+console.log(products)
 
     const addId ={ id: _id, name, brandName, category, price, shortDescription, rating, image }
 
 
     const handelAddMyCard = () =>{
 
-        console.log(addId)
+  
 
         fetch('http://localhost:5000/mycard', {
             method: 'POST',

@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        
+
       },
       {
         path: '/addProduct',
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/product/:id',
-        element: <Product></Product>,
+        element: <PrivateRoute><Product></Product></PrivateRoute>,
         loader: () => fetch('http://localhost:5000/product')
 
       },
@@ -62,22 +62,27 @@ const router = createBrowserRouter([
       {
         path: '/Samsung',
         element: <Samsung></Samsung>,
+        loader: () => fetch('http://localhost:5000/product')
       },
       {
         path: '/Vivo',
         element: <Vivo></Vivo>,
+        loader: () => fetch('http://localhost:5000/product')
       },
       {
         path: '/Oppo',
         element: <Oppo></Oppo>,
+        loader: () => fetch('http://localhost:5000/product')
       },
       {
         path: '/OnePlus',
         element: <OnePlus></OnePlus>,
+        loader: () => fetch('http://localhost:5000/product')
       },
       {
         path: '/Xiaomi',
         element: <Xiaomi></Xiaomi>,
+        loader: () => fetch('http://localhost:5000/product')
       },
       {
         path: '/Apple',

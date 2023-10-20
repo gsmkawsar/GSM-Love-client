@@ -3,8 +3,7 @@ import { NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../Hook/AuthProvider";
 
-
-const AppleCard = ({ phone, items, setItems }) => {
+const OppoCard = ({ phone, items, setItems }) => {
 
     const { user } = useContext(AuthContext);
 
@@ -13,7 +12,7 @@ const AppleCard = ({ phone, items, setItems }) => {
 
     useEffect(() => {
 
-        const remaining = items.filter(phone => phone.category == "iPhone");
+        const remaining = items.filter(phone => phone.category == "Oppo");
         setItems(remaining);
     }, [])
 
@@ -88,4 +87,4 @@ const AppleCard = ({ phone, items, setItems }) => {
     );
 };
 
-export default AppleCard;
+export default OppoCard;

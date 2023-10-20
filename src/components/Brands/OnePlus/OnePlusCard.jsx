@@ -4,16 +4,18 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../../Hook/AuthProvider";
 
 
-const AppleCard = ({ phone, items, setItems }) => {
+const OnePlusCard = ({ phone, items, setItems }) => {
+
 
     const { user } = useContext(AuthContext);
 
     const { _id, name, price, image } = phone || {}
 
 
+
     useEffect(() => {
 
-        const remaining = items.filter(phone => phone.category == "iPhone");
+        const remaining = items.filter(phone => phone.category == "OnePlus");
         setItems(remaining);
     }, [])
 
@@ -76,7 +78,6 @@ const AppleCard = ({ phone, items, setItems }) => {
                             </div>
 
                             : ''
-
                         }
 
                     </div>
@@ -88,4 +89,4 @@ const AppleCard = ({ phone, items, setItems }) => {
     );
 };
 
-export default AppleCard;
+export default OnePlusCard;

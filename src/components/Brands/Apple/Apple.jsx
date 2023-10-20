@@ -4,15 +4,15 @@ import AppleCard from "./AppleCard";
 
 
 const Apple = () => {
-    const loadedApple = useLoaderData();
-    const [apples, setApples ] = useState(loadedApple);
+    const loadedPhone = useLoaderData();
+    const [items, setItems ] = useState(loadedPhone);
 
     return (
 
 
         <div className="grid lg:grid-cols-4  gap-5 my-5">
             {
-             apples.map(apple => <AppleCard key={apple._id} apple={apple} apples={apples} setApples={setApples} ></AppleCard>)  
+             items.map(phone => <AppleCard key={phone._id} phone={phone} items={items} setItems={setItems} ></AppleCard>)  
             }
         </div>
     );
