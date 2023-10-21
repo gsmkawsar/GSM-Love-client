@@ -21,6 +21,8 @@ const Header = () => {
     }
 
 
+
+
     const navLink = <>
         <li> <NavLink to={"/"}>Home</NavLink> </li>
         <li> <NavLink to={"/addProduct"}>Add Product</NavLink> </li>
@@ -32,13 +34,15 @@ const Header = () => {
     return (
         <div className="bg-[#364058] " >
             <div className="navbar w-10/12 m-auto pt-4 pb-0 ">
+                
 
                 <div className="flex-1">
                     <div>
                     <img className="w-12 mr-2" src="./gsmmanager.png" alt="gsmmanager" />
                     </div>
                  <a className=" text-white normal-case font-bold text-2xl lg:text-3xl"><span className="text-[#21b68e]">GSM</span> MANAGER</a>
-               
+              
+
                    
                 </div>
                 <div className="flex-none gap-2">
@@ -110,19 +114,6 @@ const Header = () => {
                 </div>
 
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

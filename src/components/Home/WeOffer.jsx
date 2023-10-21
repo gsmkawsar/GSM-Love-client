@@ -6,8 +6,10 @@ import { BiSupport } from 'react-icons/bi';
 const WeOffer = () => {
     return (
         <div>
+
             <div className="text-center   ">
                 <h2 className="text-3xl font-extrabold mb-2 mt-5">What We Offer!</h2>
+    
                 <p className='font-semibold lg:w-2/4 mx-auto '>Shifting from a business perspective, mobile  have been making a lot of profits because they offer convenience to consumers, easy management, and store data</p>
             </div>
             <div className="grid lg:grid-cols-4  gap-5 my-5">

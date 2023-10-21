@@ -28,7 +28,7 @@ const VivoCard = ({ phone, items, setItems }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/product/${id}`, {
+                fetch(`https://assignment-10-server-sigma-nine.vercel.app/product/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -71,7 +71,7 @@ const VivoCard = ({ phone, items, setItems }) => {
                                 <NavLink to={`/update/${_id}`} >
                                     <button className="btn bg-[#df6335] text-white hover:bg-slate-600 ">Update</button>
                                 </NavLink>
-                                <button onClick={() => handelDelete(_id)} className="btn bg-[#ff3f3f] text-white hover:bg-slate-600 ">X</button>
+                                {/* <button onClick={() => handelDelete(_id)} className="btn bg-[#ff3f3f] text-white hover:bg-slate-600 ">X</button> */}
                             </div>
 
                             : ''

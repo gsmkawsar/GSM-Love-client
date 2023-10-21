@@ -14,7 +14,7 @@ console.log(products)
 
   
 
-        fetch('http://localhost:5000/mycard', {
+        fetch('https://assignment-10-server-sigma-nine.vercel.app/mycard', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

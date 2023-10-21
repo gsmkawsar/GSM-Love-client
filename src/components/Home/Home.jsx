@@ -2,9 +2,8 @@
 import { useLoaderData } from 'react-router-dom';
 import Benar from './Benar';
 import Category from './Category';
-
-
 import WeOffer from './WeOffer';
+import Email from './Email';
 
 
 const Home = () => {
@@ -24,8 +23,9 @@ const Home = () => {
                 <p className='font-semibold lg:w-2/4 mx-auto '>Select Your Favorite Brands And Purchase</p>
             </div>
             <Category></Category>
-
+            <Email></Email>
             <WeOffer></WeOffer>
+
         </div>
     );
 };

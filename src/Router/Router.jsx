@@ -37,18 +37,18 @@ const router = createBrowserRouter([
       {
         path: '/product/:id',
         element: <PrivateRoute><Product></Product></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/product')
+        loader: () => fetch('https://assignment-10-server-sigma-nine.vercel.app/product')
 
       },
       {
         path: "/myCart",
         element: <PrivateRoute><MyCart></MyCart>,</PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/myCard'),
+        loader: () => fetch('https://assignment-10-server-sigma-nine.vercel.app/myCard'),
       },
       {
         path: '/update/:id',
         element: <UpdateProduct></UpdateProduct>,
-        loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
+        loader: ({ params }) => fetch(`https://assignment-10-server-sigma-nine.vercel.app/product/${params.id}`)
 
       },
       {
@@ -62,32 +62,32 @@ const router = createBrowserRouter([
       {
         path: '/Samsung',
         element: <Samsung></Samsung>,
-        loader: () => fetch('http://localhost:5000/product')
+        loader: () => fetch('https://assignment-10-server-sigma-nine.vercel.app/product')
       },
       {
         path: '/Vivo',
         element: <Vivo></Vivo>,
-        loader: () => fetch('http://localhost:5000/product')
+        loader: () => fetch('https://assignment-10-server-sigma-nine.vercel.app/product')
       },
       {
         path: '/Oppo',
         element: <Oppo></Oppo>,
-        loader: () => fetch('http://localhost:5000/product')
+        loader: () => fetch('https://assignment-10-server-sigma-nine.vercel.app/product')
       },
       {
         path: '/OnePlus',
         element: <OnePlus></OnePlus>,
-        loader: () => fetch('http://localhost:5000/product')
+        loader: () => fetch('https://assignment-10-server-sigma-nine.vercel.app/product')
       },
       {
         path: '/Xiaomi',
         element: <Xiaomi></Xiaomi>,
-        loader: () => fetch('http://localhost:5000/product')
+        loader: () => fetch('https://assignment-10-server-sigma-nine.vercel.app/product')
       },
       {
         path: '/Apple',
         element: <Apple></Apple>,
-        loader: () => fetch('http://localhost:5000/product')
+        loader: () => fetch('https://assignment-10-server-sigma-nine.vercel.app/product')
       },
 
     ]

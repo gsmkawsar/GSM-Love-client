@@ -18,7 +18,7 @@ const AddProduct = () => {
         const addProduct = { name, brandName, category, price, shortDescription, rating, image }
         console.log(addProduct)
 
-        fetch('http://localhost:5000/product', {
+        fetch('https://assignment-10-server-sigma-nine.vercel.app/product', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -71,7 +71,7 @@ const AddProduct = () => {
                             <option>OnePlus</option>
                         </select> */}
 
-                        <input type="text" placeholder="Category" name="category" className=" select select-bordered w-full " />
+                        <input type="text" placeholder="Category" name="category" className=" input input-bordered  w-full " />
 
                     </div>
                     <div className="form-control  ">

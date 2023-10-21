@@ -25,7 +25,7 @@ const UpdateProduct = () => {
         const addProduct = { name, brandName, category, price, shortDescription, rating, image }
         console.log(addProduct)
 
-        fetch(`http://localhost:5000/product/${_id}`, {
+        fetch(`https://assignment-10-server-sigma-nine.vercel.app/product/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

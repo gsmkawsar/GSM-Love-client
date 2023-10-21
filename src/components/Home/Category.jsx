@@ -8,7 +8,7 @@ const Category = () => {
     return (
 
 
-            <div className="grid lg:grid-cols-6  gap-5 my-5">
+            <div className="grid grid-cols-2 lg:grid-cols-6  gap-5 my-5">
 
 
                 <div className="card card-compact  bg-[#1428a0] shadow-xl">
