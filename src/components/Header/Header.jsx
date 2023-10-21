@@ -38,9 +38,9 @@ const Header = () => {
 
                 <div className="flex-1">
                     <div>
-                    <img className="w-12 mr-2" src="./gsmmanager.png" alt="gsmmanager" />
+                    <img className="w-12 mr-2" src="https://i.ibb.co/ZLMdBLs/logo.png" alt="gsmlove" />
                     </div>
-                 <a className=" text-white normal-case font-bold text-2xl lg:text-3xl"><span className="text-[#21b68e]">GSM</span> MANAGER</a>
+                 <a className=" text-white normal-case font-bold text-2xl lg:text-3xl"><span className="text-[#21b68e]">GSM</span> Love</a>
               
 
                    
